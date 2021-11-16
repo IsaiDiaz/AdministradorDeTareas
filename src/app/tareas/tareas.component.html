@@ -1,0 +1,40 @@
+<div class="container col-xxl-8 px-4 py-5">
+    <h2>Listado de Tareas</h2>
+    <button class="btn btn-primary" style="margin-bottom: 20px" [routerLink]="['/todoHoy/agregarLista', 1]">Agregar
+        Lista</button>
+    <div *ngIf="tareas.length>0; else SinTareas">
+        <div *ngFor="let lista of tareas">
+            <div class="card" style="width: 30rem; margin: 20px;">
+                <div class="card-header">
+                    <h3>{{lista.nombreLista}}</h3>
+                    <p>{{lista.fecha}}</p>
+                    <p>{{lista.descripcionLista}}</p>
+                    <a class="btn btn-primary" [routerLink]="['/todoHoy/agregarTarea', lista.idLista]">Agregar
+                        Tareas</a>
+                    <a class="btn btn-success" style="margin-left: 20px;"
+                        [routerLink]="['/todoHoy/modificarLista', lista.idLista]">Modificar Lista</a>
+                    <a class="btn btn-danger" style="margin-left: 20px;" (click)="eliminarLista(lista.idLista)">Eliminar
+                        Lista</a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <div *ngFor="let tarea of tareas">
+                        <div *ngIf="tarea.idLista==lista.idLista">
+                            <li class="list-group-item">
+                                <div *ngIf="tarea.estado==false">
+                                    <h4>{{tarea.nombre}}</h4>
+                                    <p>{{tarea.descripcion}}</p>
+                                    <a class="btn btn-primary" style="margin-right: 20px;"
+                                        [routerLink]="['/todoHoy/modificarTarea', tarea.idTarea]">Modificar Tarea</a>
+                                    <a class="btn btn-danger" (click)="eliminarTarea(tarea.idTarea)">Eliminar Tarea</a>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ng-template #SinTareas>
+        <p>No se encontro ninguna tarea</p>
+    </ng-template>
+</div>

@@ -1,0 +1,39 @@
+<form (ngSubmit)="onSubmit()" #formEvento="ngForm" class="row g-3">
+    <div class="container col-xxl-8 px-4 py-5">
+        <h1>Agregar Evento</h1>
+        <div class="col-12">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" matInput name="nombre" value="{{evento.nombre}}" [(ngModel)]="evento.nombre"
+                placeholder="Nombre">
+        </div>
+        <div class="col-12">
+            <label for="inputdescripcion" class="form-label">Descripcion</label>
+            <textarea matInput name="descripcion" id="inputdescripcion" class="form-control" cols="50" rows="10" value="{{evento.descripcion}}" [(ngModel)]="evento.descripcion" placeholder="Descripcion">
+            </textarea>
+        </div>
+        <div class="col-12" style="margin-bottom: 15px;">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" matInput name="fecha" id="fecha"
+                value="{{evento.fecha}}" [(ngModel)]="evento.fecha">
+        </div>
+        <div class="col-12" style="margin-bottom: 15px;">
+            <label for="hora" class="form-label">Hora</label>
+            <input type="time" class="form-control" matInput name="hora" id="hora"
+                value="{{evento.hora}}" [(ngModel)]="evento.hora">
+        </div>
+        <p>Resumen: {{evento.nombre}}, {{evento.descripcion}}, {{evento.fecha}}, {{evento.hora}}, {{evento.idUsuario}}</p>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-success" name="enviar">Guardar</button>
+                </div>
+                <div class="col-4">
+                    <button type="reset" class="btn btn-danger">Borrar</button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-primary" (click)="volver()">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

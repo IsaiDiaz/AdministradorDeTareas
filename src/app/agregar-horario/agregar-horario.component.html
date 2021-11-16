@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()" #formHorario="ngForm" class="row g-3">
+    <div class="container col-xxl-8 px-4 py-5">
+        <h1>Agregar Horario</h1>
+        <div class="col-12">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" matInput name="nombre" [(ngModel)]="horario.nombre"
+                placeholder="Nombre">
+        </div>
+        <div class="col-12">
+            <label for="inputdescripcion" class="form-label">Descripcion</label>
+            <textarea matInput name="descripcion" id="inputdescripcion" class="form-control" cols="50" rows="10"  [(ngModel)]="horario.descripcion" placeholder="Descripcion">
+            </textarea>
+        </div>
+        <div class="col-12" style="margin-bottom: 15px;">
+            <div clas=row>
+                <div class="col-4">
+                    <label for="horaInicio" class="form-label">Hora de Inicio</label>
+                    <input type="time" class="form-control" matInput name="horaInicio" id="horaInicio" [(ngModel)]="horario.horaInicio">
+                </div>
+                <div class="col-4">
+                    <label for="horaFinal" class="form-label">Hora de Finalización</label>
+                    <input type="time" class="form-control" matInput name="horaFinal" id="horaFinal" [(ngModel)]="horario.horaFinal">
+                </div>
+            </div>
+        </div>
+        <p>Resumen: {{horario.nombre}}, {{horario.descripcion}}, {{horario.horaInicio}}, {{horario.horaFinal}}, {{horario.idHorario}}</p>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-success" name="enviar">Guardar</button>
+                </div>
+                <div class="col-4">
+                    <button type="reset" class="btn btn-danger">Borrar</button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-primary" (click)="volver()">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

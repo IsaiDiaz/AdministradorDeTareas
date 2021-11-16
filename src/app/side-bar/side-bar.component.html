@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menú</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="home">Home</a>
+      <a mat-list-item href="login">Log-in</a>
+    </mat-nav-list>
+    <mat-accordion>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                  Funciones
+              </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+              <a mat-list-item href="todoHoy">Todo</a>
+              <a mat-list-item href="tareas">Tareas</a>
+              <a mat-list-item href="eventos">Eventos</a>
+              <a mat-list-item href="horarios">Horarios</a>
+          </mat-nav-list>
+      </mat-expansion-panel>
+  </mat-accordion>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img src="./assets/logo.png" alt="Logo" width=50>
+      <span>Administrador De Tareas</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

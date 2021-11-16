@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit()" #formRegistro="ngForm" class="row g-3">
+    <div class="container col-xxl-8 px-4 py-5">
+        <h1>Registro</h1>
+        <div class="col-12">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" matInput name="nombre" [(ngModel)]="usuario.nombre"
+                placeholder="Nombre">
+        </div>
+        <div class="col-12">
+            <label for="inputUserName" class="form-label">Nombre de Usuario</label>
+            <input type="text" class="form-control" matInput name="userName" id="inputUserName"
+                [(ngModel)]="usuario.userName" placeholder="Nombre de Usuario">
+        </div>
+        <div class="col-12" style="margin-bottom: 15px;">
+            <label for="contrasena" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" matInput name="contrasena" id="contrasena"
+                [(ngModel)]="usuario.contrasena" placeholder="Contraseña">
+        </div>
+        <div class="col-12">
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary" name="enviar">Registrarse</button>
+            </div>
+            <div class="col-4">
+                <button type="reset" class="btn btn-danger">Borrar</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "admtareas-56292": {
+      "hosting": {
+        "AdministradorDeTareas": [
+          "admtareas-56292"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "admtareas-56292"
+  }
+}
