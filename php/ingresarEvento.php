@@ -6,7 +6,7 @@ if (!$jsonEvento) {
     exit("No hay datos");
 }
 $bd = include_once "conexion.php";
-$sentencia = $bd->prepare("insert into eventos (idUsuario, nombre, descripcion, fecha, hora) values (?,?,?,?,?)");
+$sentencia = $bd->prepare("INSERT INTO `eventos`(`idUsuario`, `nombre`, `descripción`, `fecha`, `hora`) VALUES (?,?,?,?,?)");
 $resultado = $sentencia->execute([$jsonEvento->idUsuario, $jsonEvento->nombre, $jsonEvento->descripcion,$jsonEvento->fecha, $jsonEvento->hora]);
 echo json_encode([
     "resultado" => $resultado,

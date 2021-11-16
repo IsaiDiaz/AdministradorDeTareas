@@ -10,7 +10,7 @@ if (!$jsonEvento) {
     exit("No hay datos");
 }
 $bd = include_once "conexion.php";
-$sentencia = $bd->prepare("UPDATE eventos SET nombre = ?, descripcion = ?, fecha = ?, hora = ? WHERE idEvento = ?");
+$sentencia = $bd->prepare("UPDATE `eventos` SET `nombre`=?,`descripción`=?,`fecha`=?,`hora`=? WHERE `idEvento`= ?");
 $resultado = $sentencia->execute([$jsonEvento->nombre, $jsonEvento->descripcion, $jsonEvento->fecha, $jsonEvento->hora, $jsonEvento->idEvento]);
 echo json_encode($resultado);
 ?>

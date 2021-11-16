@@ -6,8 +6,8 @@ if (!$jsonTarea) {
     exit("No hay datos");
 }
 $bd = include_once "conexion.php";
-$sentencia = $bd->prepare("insert into tareas(idLista, nombre, estado, descripcion) values (?,?,?,?)");
-$resultado = $sentencia->execute([$jsonTarea->idLista, $jsonTarea->nombre, $jsonTarea->estado, $jsontarea->descripcion]);
+$sentencia = $bd->prepare("INSERT INTO `tareas`(`idLista`, `nombre`, `estado`, `descripcion`) VALUES (?,?,?,?)");
+$resultado = $sentencia->execute([$jsonTarea->idLista, $jsonTarea->nombre, $jsonTarea->estado, $jsonTarea->descripcion]);
 echo json_encode([
     "resultado" => $resultado,
 ]);
